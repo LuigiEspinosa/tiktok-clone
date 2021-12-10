@@ -13,7 +13,15 @@ function Index({ posts }) {
 }
 
 export function getStaticProps() {
-  const data = [{ videoUrl: 'https://www.tiktok.com/@minasbulldog/video/6987766561717243142' }];
+  const data = [];
+  const postN = 4;
+
+  for (let i = 0; i < postN; i++) {
+    data.push(
+      { videoUrl: 'https://www.tiktok.com/@minasbulldog/video/6987766561717243142' },
+      { videoUrl: 'https://www.tiktok.com/@rocconnikodagoldens/video/6891440216838507777' }
+    )
+  }
   
   return {
     props: {
