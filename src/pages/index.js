@@ -14,13 +14,10 @@ function Index({ posts }) {
 
 export function getStaticProps() {
   const data = [];
-  const postN = 4;
+  const postN = 40;
 
   for (let i = 0; i < postN; i++) {
-    data.push(
-      { videoUrl: 'https://www.tiktok.com/@minasbulldog/video/6987766561717243142' },
-      { videoUrl: 'https://www.tiktok.com/@rocconnikodagoldens/video/6891440216838507777' }
-    )
+    data.push({ videoUrl: 'https://www.tiktok.com/@minasbulldog/video/6987766561717243142' })
   }
   
   return {
