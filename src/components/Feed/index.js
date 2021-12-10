@@ -2,10 +2,12 @@ import dynamic from 'next/dynamic';
 import { Container } from './styles';
 const PostCard = dynamic(() => import('../PostCard'));
 
-function Feed() {
+function Feed({ posts }) {
   return (
     <Container>
-      <PostCard></PostCard>
+      {posts.map((post, index) => (
+          <PostCard key={index} post={post}></PostCard>
+      ))}
     </Container>
   );
 }
