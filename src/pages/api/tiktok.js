@@ -24,10 +24,7 @@ export default async (req, res) => {
     try {
       const videoMeta = await TikTokScraper.getVideoMeta(username);
       res.statusCode = 200
-      return res.json({
-        headerMeta: videoMeta.headers,
-        videoMeta: videoMeta.collector[0]
-      })
+      return res.json(videoMeta.collector[0])
     } catch (e) {
       res.statusCode = 404
       return res.json({

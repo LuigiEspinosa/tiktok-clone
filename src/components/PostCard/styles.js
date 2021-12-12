@@ -56,13 +56,17 @@ export const Description = styled.div`
   display: inline;
 `;
 
+export const Content = styled.div`
+  margin-left: 68px;
+`;
+
 export const Song = styled.div`
   display: flex;
   align-items: flex-end;
   margin-top: 5px;
 
   a {
-    font-weight: 600;
+    font-weight: 800;
     cursor: pointer;
     :hover {
       text-decoration: underline;
@@ -76,9 +80,11 @@ export const Song = styled.div`
   }
 `;
 
-export const Content = styled.div`
-  margin-left: 68px;
-`;
+export const MediaContainer = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+`
 
 export const ActionsContainer = styled.div`
   visibility: hidden;
@@ -103,6 +109,7 @@ export const VideoContainer = styled.div`
     }
   }
 `;
+
 export const Video = styled.video`
   max-width: 100%;
   border-radius: 9px;
@@ -114,18 +121,18 @@ export const PlayerIcon = styled.img`
 `;
 
 export const Actions = styled.div`
-  display: flex;
-  align-items: center;
   padding: 0 10px;
-  margin-top: 12px;
+  margin-top: 24px;
+  margin-left: 24px;
 `;
 
 export const Action = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: column;
   font-size: 18px;
   font-weight: 700;
-  margin-right: 25px;
+  margin-bottom: 25px;
   cursor: pointer;
 
   img {
