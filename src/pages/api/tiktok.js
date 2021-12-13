@@ -1,5 +1,5 @@
 const TikTokScraper = require('tiktok-scraper');
-const Cors = require('cors')
+const Cors = require('cors');
 
 const cors = Cors({
   methods: ['POST'],
@@ -23,8 +23,12 @@ export default async (req, res) => {
 
     try {
       const videoMeta = await TikTokScraper.getVideoMeta(username);
+
       res.statusCode = 200
-      return res.json(videoMeta.collector[0])
+      return res.json({
+        headers: videoMeta.headers,
+        video: videoMeta.collector[0]
+      })
     } catch (e) {
       res.statusCode = 404
       return res.json({

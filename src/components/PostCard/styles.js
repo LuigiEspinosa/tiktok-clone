@@ -86,40 +86,6 @@ export const MediaContainer = styled.div`
   justify-content: center;
 `
 
-export const ActionsContainer = styled.div`
-  visibility: hidden;
-  width: 40px;
-  height: 40px;
-  bottom: 15px;
-  left: 12px;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const VideoContainer = styled.div`
-  cursor: pointer;
-  width: calc(0.56 * (400px + ((100vw - 768px) / 1152) * 100));
-  position: relative;
-  margin-top: 15px;
-  :hover {
-    ${ActionsContainer} {
-      visibility: visible;
-    }
-  }
-`;
-
-export const Video = styled.video`
-  max-width: 100%;
-  border-radius: 9px;
-`;
-
-export const PlayerIcon = styled.img`
-  width: 20px;
-  height: 20px;
-`;
-
 export const Actions = styled.div`
   padding: 0 10px;
   margin-top: 24px;

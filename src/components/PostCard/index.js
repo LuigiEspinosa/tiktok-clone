@@ -11,18 +11,13 @@ import {
   Content,
   Song,
   MediaContainer,
-  ActionsContainer,
-  VideoContainer,
-  Video,
-  PlayerIcon,
   Actions,
   Action,
 } from './styles';
+import VideoEmbed from '../Video';
 
 function PostCard({ post }) {
   const [postData, setPostData] = useState({})
-  const [running, setRunning] = useState(false);
-  const videoRef = useRef();
 
   fetch(`${server}/api/tiktok`, {
     method: 'post',
@@ -41,28 +36,20 @@ function PostCard({ post }) {
     return `${month}-${day}`
   }
 
-  const toggleAction = () => {
-    if (videoRef?.current != null) {
-      if (!running) videoRef.current.play();
-      else videoRef.current.pause();
-      setRunning(!running);
-    }
-  };
-
   return (
     <Container>
       <Header>
         <PersonContainer>
-          <Avatar src={postData?.authorMeta?.avatar}></Avatar>
+          <Avatar src={postData?.video?.authorMeta?.avatar}></Avatar>
           <Info>
             <Author>
-              {postData?.authorMeta?.name}
+              {postData?.video?.authorMeta?.name}
               <span>
-                {postData?.authorMeta?.nickName} &bull; {createTime(postData?.createTime)}
+                {postData?.video?.authorMeta?.nickName} &bull; {createTime(postData?.video?.createTime)}
               </span>
             </Author>
             <Description>
-              {postData?.text}
+              {postData?.video?.text}
             </Description>
           </Info>
         </PersonContainer>
@@ -70,39 +57,22 @@ function PostCard({ post }) {
       <Content>
         <Song>
           <img src='/images/songIcon.svg'></img>
-          <a>{postData?.musicMeta?.musicName} - {postData?.musicMeta?.musicAuthor}</a>
+          <a>{postData?.video?.musicMeta?.musicName} - {postData?.video?.musicMeta?.musicAuthor}</a>
         </Song>
         <MediaContainer>
-          <VideoContainer>
-            <Video
-              ref={videoRef}
-              webkit-playsinline
-              autoplay
-              playsinline
-              loop
-              preload='metadata'
-              poster={postData?.imageUrl}
-              width={postData?.videoUrl?.width}
-              height={postData?.videoUrl?.height}
-            ></Video>
-            <ActionsContainer onClick={toggleAction}>
-              <PlayerIcon
-                src={running ? '/images/pauseIcon.svg' : '/images/playIcon.svg'}
-              ></PlayerIcon>
-            </ActionsContainer>
-          </VideoContainer>
+          <VideoEmbed post={post.videoUrl} />
           <Actions>
             <Action>
               <img src='/images/heartIcon.svg'></img>
-              <a>{postData?.diggCount}</a>
+              <a>{postData?.video?.diggCount}</a>
             </Action>
             <Action>
               <img src='/images/bubbleIcon.svg'></img>
-              <a>{postData?.commentCount}</a>
+              <a>{postData?.video?.commentCount}</a>
             </Action>
             <Action>
               <img src='/images/arrowIcon.svg'></img>
-              <a>{postData?.shareCount}</a>
+              <a>{postData?.video?.shareCount}</a>
             </Action>
           </Actions>
           </MediaContainer>
