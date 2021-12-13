@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react';
 import { VideoContainer } from './styles';
-import useScript from '../../hooks/useScript';
 
 function VideoEmbed({ post }) {
-  useScript('https://www.tiktok.com/embed.js');
-
   const [tikTokResults, setTikTokResults] = useState();
   const url = 'https://www.tiktok.com/oembed?url=' + post;
 

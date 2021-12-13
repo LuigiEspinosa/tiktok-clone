@@ -2,8 +2,11 @@ import dynamic from 'next/dynamic';
 import Layout from '../components/Layout';
 import Suggestions from '../components/Suggestions';
 const Feed = dynamic(() => import('../components/Feed'));
+import useScript from '../hooks/useScript';
 
 function Index({ posts }) {
+  useScript('https://www.tiktok.com/embed.js');
+
   return (
     <Layout>
       <Feed posts={posts}></Feed>

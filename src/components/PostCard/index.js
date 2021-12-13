@@ -1,5 +1,6 @@
-import { useRef, useState } from 'react';
-import { server } from '../../pages/config';
+import dynamic from 'next/dynamic';
+import { useState } from 'react';
+import { server } from '../../config';
 import {
   Container,
   Header,
