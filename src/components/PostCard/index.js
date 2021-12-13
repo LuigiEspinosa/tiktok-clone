@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { server } from '../../pages/config';
+import { server } from '../../config';
 import {
   Container,
   Header,
