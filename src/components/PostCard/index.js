@@ -8,11 +8,8 @@ import {
   Description,
   Content
 } from './styles';
-import useScript from '../../hooks/useScript'
 
 function PostCard({ post }) {
-  useScript('https://www.tiktok.com/embed.js');
-
   const [tikTokResults, setTikTokResults] = useState();
   const url = 'https://www.tiktok.com/oembed?url=' + post.videoUrl;
 
