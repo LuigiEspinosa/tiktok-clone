@@ -14,7 +14,7 @@ function Index({ posts }) {
 
 export function getStaticProps() {
   const data = [];
-  const postN = 1;
+  const postN = 40;
 
   for (let i = 0; i < postN; i++) {
     data.push({ videoUrl: 'https://www.tiktok.com/@minasbulldog/video/6987766561717243142' })

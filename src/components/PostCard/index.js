@@ -14,7 +14,7 @@ import {
   Actions,
   Action,
 } from './styles';
-import VideoEmbed from '../Video';
+const VideoEmbed = dynamic(() => import('../Video'));
 
 function PostCard({ post }) {
   const [postData, setPostData] = useState({})
