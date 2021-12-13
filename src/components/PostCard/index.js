@@ -84,7 +84,9 @@ function PostCard({ post }) {
               poster={postData?.imageUrl}
               width={postData?.videoUrl?.width}
               height={postData?.videoUrl?.height}
-            ></Video>
+            >
+              <source src={postData?.videoUrl} type="video/mp4" />
+            </Video>
             <ActionsContainer onClick={toggleAction}>
               <PlayerIcon
                 src={running ? '/images/pauseIcon.svg' : '/images/playIcon.svg'}
