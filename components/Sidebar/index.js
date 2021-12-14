@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import {
   Container,
   MenuItem,
@@ -9,11 +10,11 @@ function Sidebar() {
   return (
     <Container>
       <MenuItem active>
-        <img src='/images/homeIcon.svg' alt="" width={40} height={40}></img>
+        <Image src='/images/homeIcon.svg' alt="" width={40} height={40} />
         <span>For you</span>
       </MenuItem>
       <MenuItem>
-        <img src='/images/peopleIcon.svg' alt="" width={40} height={40}></img>
+        <Image src='/images/peopleIcon.svg' alt="" width={40} height={40} />
         <span>Following</span>
       </MenuItem>
       <InfoContainer>
