@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic';
 const TikTokScraper = require('tiktok-scraper');
-
 import Layout from '../components/Layout';
 import Suggestions from '../components/Suggestions';
 const Feed = dynamic(() => import('../components/Feed'));
