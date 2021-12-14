@@ -29,7 +29,7 @@ const fetcher = async (path) => {
 const PostCard = () => {
   const [running, setRunning] = useState(false);
   const videoRef = useRef();
-  const {data, error} = useSWR('https://tiktok-clone-git-cheerio-luigiespinosa.vercel.app/api/video', fetcher);
+  const {data, error} = useSWR('/api/video', fetcher);
 
   function createTime(date) {
     const dateObj = new Date(date * 1000);
