@@ -6,7 +6,7 @@ function Feed({ posts }) {
   return (
     <Container>
       {posts.map((post, index) => (
-        <PostCard post={post} key={index}></PostCard>
+        <PostCard postData={post} key={index}></PostCard>
       ))}
     </Container>
   );

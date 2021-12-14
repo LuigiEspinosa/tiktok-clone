@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react';
-import { server } from '../../config';
 import {
   Container,
   Header,
@@ -19,20 +18,9 @@ import {
   Action,
 } from './styles';
 
-function PostCard({ post }) {
-  const [postData, setPostData] = useState({})
+function PostCard({ postData }) {
   const [running, setRunning] = useState(false);
   const videoRef = useRef();
-
-  fetch(`${server}/api/tiktok`, {
-    method: 'post',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ TWuser: post.videoUrl }),
-  })
-    .then((res) => res.json())
-    .then((userData) => {
-      setPostData(userData)
-    })
 
   function createTime(date) {
     const dateObj = new Date(date * 1000);
