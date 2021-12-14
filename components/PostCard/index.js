@@ -22,6 +22,10 @@ const fetcher = async (path) => {
   return await fetch(path).then(res => res.json())
 }
 
+const myLoader = ({ src, width, quality }) => {
+  return `https://tiktok-clone-ch9nw.ondigitalocean.app//${src}?w=${width}&q=${quality || 75}`
+}
+
 const PostCard = () => {
   const {data, error} = useSWR('/api/scraper', fetcher);
 
@@ -60,22 +64,22 @@ const PostCard = () => {
       </Header>
       <Content>
         <Song>
-          <Image src='/images/songIcon.svg' alt="" width={18} height={25} />
+          <Image loader={myLoader} src='/images/songIcon.svg' alt="" width={18} height={25} />
           <a>{data?.musicMeta?.musicName} - {data?.musicMeta?.musicAuthor}</a>
         </Song>
         <MediaContainer>
           <VideoContainer />
           <Actions>
             <Action>
-              <Image src='/images/heartIcon.svg' alt="" width={32} height={32} />
+              <Image loader={myLoader} src='/images/heartIcon.svg' alt="" width={32} height={32} />
               <a>{data?.diggCount}</a>
             </Action>
             <Action>
-              <Image src='/images/bubbleIcon.svg' alt="" width={32} height={32} />
+              <Image loader={myLoader} src='/images/bubbleIcon.svg' alt="" width={32} height={32} />
               <a>{data?.commentCount}</a>
             </Action>
             <Action>
-              <Image src='/images/arrowIcon.svg' alt="" width={32} height={32} />
+              <Image loader={myLoader} src='/images/arrowIcon.svg' alt="" width={32} height={32} />
               <a>{data?.shareCount}</a>
             </Action>
           </Actions>

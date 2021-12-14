@@ -6,15 +6,19 @@ import {
   Links,
 } from './styles'
 
+const myLoader = ({ src, width, quality }) => {
+  return `https://tiktok-clone-ch9nw.ondigitalocean.app//${src}?w=${width}&q=${quality || 75}`
+}
+
 function Sidebar() {
   return (
     <Container>
       <MenuItem active>
-        <Image src='/images/homeIcon.svg' alt="" width={40} height={40} />
+        <Image loader={myLoader} src='/images/homeIcon.svg' alt="" width={40} height={40} />
         <span>For you</span>
       </MenuItem>
       <MenuItem>
-        <Image src='/images/peopleIcon.svg' alt="" width={40} height={40} />
+        <Image loader={myLoader} src='/images/peopleIcon.svg' alt="" width={40} height={40} />
         <span>Following</span>
       </MenuItem>
       <InfoContainer>
