@@ -7,7 +7,7 @@ import {
 } from './styles'
 
 const myLoader = ({ src, width, quality }) => {
-  return `https://tiktok-clone-ch9nw.ondigitalocean.app//${src}?w=${width}&q=${quality || 75}`
+  return `https://tiktok-clone-ch9nw.ondigitalocean.app/${src}?w=${width}&q=${quality || 75}`
 }
 
 function Sidebar() {
