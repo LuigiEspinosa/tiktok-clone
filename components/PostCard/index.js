@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react'
 import useSWR from "swr"
 import fetch from "unfetch"
-import Image from 'next/image'
 
 import {
   Container,
@@ -74,7 +73,7 @@ const PostCard = () => {
       </Header>
       <Content>
         <Song>
-          <Image src='/images/songIcon.svg' alt="" width={18} height={25} />
+          <img src='/images/songIcon.svg' alt="" width={18} height={25}></img>
           <a>{data?.musicMeta?.musicName} - {data?.musicMeta?.musicAuthor}</a>
         </Song>
         <MediaContainer>
@@ -100,15 +99,15 @@ const PostCard = () => {
           </VideoContainer>
           <Actions>
             <Action>
-              <Image src='/images/heartIcon.svg' alt="" width={32} height={32} />
+              <img src='/images/heartIcon.svg' alt="" width={32} height={32}></img>
               <a>{data?.diggCount}</a>
             </Action>
             <Action>
-              <Image src='/images/bubbleIcon.svg' alt="" width={32} height={32} />
+              <img src='/images/bubbleIcon.svg' alt="" width={32} height={32}></img>
               <a>{data?.commentCount}</a>
             </Action>
             <Action>
-              <Image src='/images/arrowIcon.svg' alt="" width={32} height={32} />
+              <img src='/images/arrowIcon.svg' alt="" width={32} height={32}></img>
               <a>{data?.shareCount}</a>
             </Action>
           </Actions>
