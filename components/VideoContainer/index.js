@@ -1,26 +1,42 @@
 import useSWR from "swr"
 import fetch from "unfetch"
 
-import { Container } from './styles';
+import { Container, Video } from './styles';
 
-const fetcher = async (path) => {
+const fetchVideo = async (path) => {
+  return await fetch(path).then(res => res.json())
+}
+
+const fetchData = async (path) => {
   return await fetch(path).then(res => res.json())
 }
 
 const VideoContainer = () => {
-  const {data, error} = useSWR('/api/video', fetcher);
+  const {data: source, error: errorSrc} = useSWR('/api/video', fetchVideo);
+  const {data: postData, error: errorData} = useSWR('/api/scraper', fetchData);
 
-  if (error) {
+  if (errorSrc || errorData) {
     return <p>Failed to load</p>;
   }
 
-  if (!data) {
+  if (!source || !postData) {
     return <p>Loading...</p>
   }
 
   return (
     <Container>
-      <div dangerouslySetInnerHTML={{ __html: data.html || '' }}></div>
+    <Video
+      webkit-playsinline
+      autoplay
+      playsinline
+      loop
+      preload='metadata'
+      poster={postData?.imageUrl}
+      width={postData?.videoUrl?.width}
+      height={postData?.videoUrl?.height}
+    >
+      <source src={source.source} type="video/mp4" />
+    </Video>
     </Container>
   );
 }
