@@ -20,7 +20,7 @@ const myLoader = ({ src, width, quality }) => {
   return `https://tiktok-clone-ch9nw.ondigitalocean.app/${src}?w=${width}&q=${quality || 75}`
 }
 
-const PostCard = () => {
+const PostCard = ({ post }) => {
   const {data, error} = useSWR('/api/scraper', fetcher);
 
   if (error) return <p> Failed to load </p>
@@ -34,7 +34,7 @@ const PostCard = () => {
           <a>{data?.musicMeta?.musicName} - {data?.musicMeta?.musicAuthor}</a>
         </Song>
         <MediaContainer>
-          <VideoContainer />
+          <VideoContainer video={post} />
           <Social />
         </MediaContainer>
       </Content>
