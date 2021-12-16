@@ -20,7 +20,7 @@ export default function Home() {
           width="250"
           height="200"
           muted>
-          <source src="" />
+          <source src="/video-feed/@minasbulldog/video/7036437186018921734" />
         </video>
 
         <p className={styles.description}>
