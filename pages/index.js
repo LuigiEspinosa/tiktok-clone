@@ -1,6 +1,8 @@
+import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import Layout from '../components/Layout'
 import Suggestions from '../components/Suggestions'
+const Feed = dynamic(() => import('../components/Feed'))
 
 export default function Home() {
   return (
@@ -12,15 +14,7 @@ export default function Home() {
       </Head>
 
       <Layout>
-        <video 
-          controls
-          width="250"
-          height="200"
-          muted
-        >
-          <source src="/video-feed/@minasbulldog/video/7036437186018921734" />
-        </video>
-
+        <Feed />
         <Suggestions />
       </Layout>
     </div>
