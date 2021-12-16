@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const Actions = styled.div`
   padding: 0 10px;
   margin-top: 24px;
-  margin-left: 24px;
 `;
 
 export const Action = styled.div`

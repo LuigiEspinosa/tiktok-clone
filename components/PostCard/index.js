@@ -10,6 +10,7 @@ import {
 } from './styles'
 const CardHeader = dynamic(() => import('../CardHeader'))
 const Social = dynamic(() => import('../Social'))
+const VideoContainer = dynamic(() => import('../VideoContainer'))
 
 const fetcher = async (path) => {
   return await axios.get(path).then(res => res.data)
@@ -33,15 +34,7 @@ const PostCard = () => {
           <a>{data?.musicMeta?.musicName} - {data?.musicMeta?.musicAuthor}</a>
         </Song>
         <MediaContainer>
-          <video 
-            controls
-            width="250"
-            height="200"
-            muted
-          >
-            <source src="/video-feed/@minasbulldog/video/7036437186018921734" />
-          </video>
-
+          <VideoContainer />
           <Social />
         </MediaContainer>
       </Content>
